@@ -1,3 +1,32 @@
+"""
+rename_pdfs.py
+
+This script renames PDF files in a specified directory by extracting their titles either from the metadata 
+or the first page of text. If no title is found, the script skips renaming that file.
+
+Features:
+1. Automatically renames PDF files based on extracted titles.
+2. Provides a manual mode (-m) for user confirmation before renaming.
+3. Ensures sanitized filenames by removing invalid characters for file systems.
+
+Created: 2024-10-06
+Author: Generated with the assistance of ChatGPT
+
+Usage:
+1. Run the script with the directory containing the PDFs as the argument:
+   python rename_pdfs.py <directory_path>
+2. Use the optional `-m` flag for manual mode:
+   python rename_pdfs.py <directory_path> -m
+   - In manual mode, the script asks for confirmation before renaming each file.
+
+Dependencies:
+- PyPDF2 (now referred to as pypdf): For reading PDF metadata and extracting text.
+
+Note:
+- Make sure the directory path is valid and contains the PDFs to rename.
+- Invalid characters in filenames are automatically removed to ensure compatibility.
+
+"""
 import sys
 import os
 import re
