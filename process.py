@@ -36,14 +36,14 @@ folder2 = input("Enter the second folder path: ").strip('"')
 folder1 = os.path.normpath(folder1)
 folder2 = os.path.normpath(folder2)
 
-# Get today's date for the folder name
-today_date = datetime.datetime.now().strftime('%Y-%m-%d')
-working_directory = os.path.join(os.getcwd(), f"zip1_zip2_{today_date}")
-os.makedirs(working_directory, exist_ok=True)
-
 # Get the zip files inside the folders
 zip1 = next((f for f in os.listdir(folder1) if f.endswith('.zip')), None)
 zip2 = next((f for f in os.listdir(folder2) if f.endswith('.zip')), None)
+
+# Get today's date for the folder name
+today_date = datetime.datetime.now().strftime('%Y-%m-%d')
+working_directory = os.path.join(os.getcwd(), f"{zip1.replace('.zip', '')}_{zip2.replace('.zip', '')}_{today_date}")
+os.makedirs(working_directory, exist_ok=True)
 
 if not zip1 or not zip2:
     print("One or both zip files not found.")
